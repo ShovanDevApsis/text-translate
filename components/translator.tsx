@@ -92,7 +92,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col shadow-2xl p-4 rounded-2xl dark:bg-[#25272b] ">
       {/* Header */}
       <div className="relative">
         {theme === "dark" && (
@@ -110,7 +110,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
 
         <Avatar className="absolute top-0 left-[48%] h-7 w-7 md:h-12 md:w-12">
           <AvatarFallback>
-            <div className="bg-blue-400 h-full w-full flex items-center justify-center">
+            <div className="bg-blue-400 dark:bg-[#3c3e42]  h-full w-full flex items-center justify-center">
               <ArrowLeftRight className=" text-white" />
             </div>
           </AvatarFallback>
@@ -119,7 +119,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
         {/* From Select */}
         <div className="absolute left-10 top-7 h-full">
           <Select onValueChange={(e) => setsource(e)}>
-            <SelectTrigger className="w-[20vw]">
+            <SelectTrigger className="w-[25vw]">
               <SelectValue placeholder="Select input language" />
             </SelectTrigger>
             <SelectContent>
@@ -140,7 +140,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
         {/* To Select */}
         <div className="absolute right-10 top-7">
           <Select onValueChange={(e) => settarget(e)}>
-            <SelectTrigger className="w-[20vw]">
+            <SelectTrigger className="w-[25vw]">
               <SelectValue placeholder="Select output language" />
             </SelectTrigger>
             <SelectContent>
@@ -164,7 +164,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
         <div className="h-[50vh] w-[50%] shadow-lg rounded-lg p-3">
           <Textarea
             placeholder="Enter text..."
-            className="bg-zinc-200/90 px-4 py-6 h-full
+            className="bg-zinc-200/90 px-4 py-6 h-full text-3xl
                   dark:bg-zinc-700/75 focus-visible:ring-offset-0
                   focus-visible:ring-0 text-zinc-600 dark:text-zinc-200 resize-none
                   "
@@ -194,7 +194,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
         <button
           disabled={isLoading}
           onClick={handleTranslate}
-          className={`bg-blue-500 text-white p-3
+          className={`bg-blue-500 dark:bg-[#393b3f]  text-white p-3
           rounded-full shadow-sm w-[50%] ${
             isLoading && "bg-zinc-600"
           }`}>
