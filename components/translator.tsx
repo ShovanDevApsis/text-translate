@@ -68,6 +68,12 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
       return handleToast("Fields missing!");
     }
 
+    if (source === target) {
+      return handleToast(
+        "Target language is the same as source language!",
+      );
+    }
+
     setisLoading(true);
 
     const body = {
