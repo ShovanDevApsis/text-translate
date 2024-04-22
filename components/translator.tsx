@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/select";
 import { translateText } from "../services/services";
 import { useToast } from "@/components/ui/use-toast";
+import Loader from "@/components/utils/loader";
 
 interface TranslatorProps {}
 
@@ -178,14 +179,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
                   dark:bg-zinc-700/75 focus-visible:ring-offset-0
                   focus-visible:ring-0 text-zinc-600 dark:text-zinc-200 resize-none
                   ">
-            {isLoading && (
-              <div className="flex space-x-2 justify-center items-center dark:invert">
-                <span className="sr-only">Loading...</span>
-                <div className="h-4 w-4 bg-slate-600 rounded-full animate-bounce [animation-delay:-0.3s]"></div>
-                <div className="h-4 w-4 bg-slate-600 rounded-full animate-bounce [animation-delay:-0.15s]"></div>
-                <div className="h-4 w-4 bg-slate-600 rounded-full animate-bounce"></div>
-              </div>
-            )}
+            {isLoading && <Loader />}
           </div>
         </div>
       </div>
