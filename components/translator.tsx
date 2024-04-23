@@ -47,6 +47,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
   const [target, settarget] = useState("");
   const [textMessage, settextMessage] = useState("");
   const [isLoading, setisLoading] = useState(false);
+  const [outputData, setoutputData] = useState("");
 
   useEffect(() => {
     setisMounted(true);
@@ -64,6 +65,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
   };
 
   const handleTranslate = () => {
+    setoutputData("")
     if (!textMessage || !source || !target) {
       return handleToast("Fields missing!");
     }
@@ -83,9 +85,11 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
     };
 
     translateText(body)
-      .then((res) => {
+      .then((res: any) => {
         if (res) {
           setisLoading(false);
+          const data = res?.translated_text;
+          setoutputData(data);
         } else {
           setisLoading(false);
           return handleToast("Something went wrong!");
@@ -186,6 +190,7 @@ const Translator: React.FC<TranslatorProps> = ({}) => {
                   focus-visible:ring-0 text-zinc-600 dark:text-zinc-200 resize-none
                   ">
             {isLoading && <Loader />}
+            <span className="text-3xl font-serif">{outputData}</span>
           </div>
         </div>
       </div>
